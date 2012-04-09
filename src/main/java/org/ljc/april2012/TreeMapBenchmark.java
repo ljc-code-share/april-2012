@@ -20,11 +20,11 @@ public class TreeMapBenchmark implements Benchmark {
 
 	@Override
 	public void addWordCounts(Map<String, Integer> words, String text) {
-		String[] textWords = text.split("\\s+");
+		String[] textWords = text.split("\\W+");
 		for (String t : textWords) {
-			Integer count = words.get(t);
+			Integer count = words.get(t.toLowerCase());
 			if (null != count) {
-				words.put(t, new Integer(count.intValue() + 1));
+				words.put(t.toLowerCase(), new Integer(count.intValue() + 1));
 			}
 		}
 	}

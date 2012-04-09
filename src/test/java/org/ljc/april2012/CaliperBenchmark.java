@@ -74,11 +74,11 @@ public class CaliperBenchmark extends SimpleBenchmark {
 	
 	public static ArrayList<String> loadWords(String filename) throws Exception {
 		String words = loadText(filename);
-		String[] textWords = words.split("\\s+");
+		String[] textWords = words.split("\\W+");
 		
 		ArrayList<String> result = new ArrayList<String>();
 		for (String t : textWords) {
-			result.add(t);
+			result.add(t.toLowerCase());
 		}
 		return result;
 	}
